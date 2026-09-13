@@ -83,14 +83,35 @@
     </div>
 
     <div id="breakdown-text">
+      <h3>Observation</h3>
       <p>This project documents observations made while examining the works.studio website using the browser's Inspect Element tool. For each feature studied, an observation is recorded, followed by a likely explanation, the evidence supporting it, and anything left unconfirmed. The site examined is works.studio, a creative agency website. Three features are covered here: the loading animation, the About navigation behavior, and the project card hover previews.</p>
-      <p></p>
       <br>
+      <h3>Mechanism</h3>
+      <p>Clicking does more than open the panel — it also marks the About link as currently active, similar to how a selected tab stays highlighted. This marking is what keeps the color in place.</p>
+      <br>
+      <h3>Evidence</h3>
+      <p>Comparing the code before and after the click shows the link gaining an additional label afterward, along with a rule that overrides its default grey color. Whether clicking changes the browser's URL, or is handled entirely within the same page, has not been confirmed.</p>
     </div>
 
     <div id="video">
-        <video src="assets/splash-anim.mp4" autoplay muted loop width="100%"></video>
+        <video src="assets/about-anim.mp4" autoplay muted loop width="100%"></video>
     </div>
+
+    <div id="code-breakdown-text">
+      <h3>The Code</h3>
+      <p>I will insert the copy here</p>
+      <br>
+
+      <div id="about-pre-click-png">
+        <img src="assets/about-pre-click.png" width="100%" />
+      </div>
+
+      <div id="about-post-click-png">
+        <img src="assets/about-post-click.png" width="100%" />
+      </div>
+
+    </div>
+
   </div>
 
 <!-- Project Card Previews  -->
@@ -101,14 +122,32 @@
         <br>
     </div>
 
-    <div id="breakdown-text">
-      <p>This project documents observations made while examining the works.studio website using the browser's Inspect Element tool. For each feature studied, an observation is recorded, followed by a likely explanation, the evidence supporting it, and anything left unconfirmed. The site examined is works.studio, a creative agency website. Three features are covered here: the loading animation, the About navigation behavior, and the project card hover previews.</p>
+    <div id="initial-text">
+      <h3>Observation</h3>
+      <p>Hovering over a project image in the grid causes it to visually stand out from the others.</p>
       <br>
+      <h3>Mechanism</h3>
+      <p>Each project card is an individual item in a list. When the cursor enters one, it is marked as "highlighted" — the rest are likely styled to recede by comparison.</p>
+      <br>
+      <h3>Evidence</h3>
+      <p>Inspecting a card while hovering over it shows the word "highlighted" added directly to that card's code, and only that one. The exact style change tied to "highlighted" has not been confirmed — whether it dims the other cards, enlarges the hovered one, or both. Reviewing the associated style rule directly would settle this.</p>
     </div>
 
     <div id="video">
-        <video src="assets/splash-anim.mp4" autoplay muted loop width="100%"></video>
+        <video src="assets/card-previews.mp4" autoplay muted loop width="100%"></video>
     </div>
+
+    <div id="code-breakdown-text">
+      <h3>The Code</h3>
+      <p>I will insert the copy here</p>
+      <br>
+
+      <div id="card-preview-code-png">
+        <img src="assets/card-preview-code.png" width="100%" />
+      </div>
+
+    </div>
+
   </div>
 
   </body>
