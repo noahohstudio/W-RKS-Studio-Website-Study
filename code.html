@@ -34,7 +34,7 @@
     </div>
 
     <div id="loading-screen-png">
-        <img src="assets/desktop-splash.png" width="100%" />
+        <img src="assets/desktop-splash.png" width="75%" />
     </div>
   </div>
 
@@ -47,21 +47,29 @@
     </div>
 
     <div id="initial-text">
-      <p>This project documents observations made while examining the works.studio website using the browser's Inspect Element tool. For each feature studied, an observation is recorded, followed by a likely explanation, the evidence supporting it, and anything left unconfirmed. The site examined is works.studio, a creative agency website. Three features are covered here: the loading animation, the About navigation behavior, and the project card hover previews.</p>
+      <h3>Observation</h3>
       <br>
+      <p>This project documents observations made while examining the works.studio website using the browser's Inspect Element tool. For each feature studied, an observation is recorded, followed by a likely explanation, the evidence supporting it, and anything left unconfirmed. The site examined is works.studio, a creative agency website. Three features are covered here: the loading animation, the About navigation behavior, and the project card hover previews.</p>
+      <h3>Mechanism</h3>
+      <br>
+      <p>A yellow overlay sits on top of the page while it loads. Once the page is ready, the overlay fades out while the headline text fades in at roughly the same time.</p>
+      <br>
+      <h3>Evidence</h3>
+      <br>
+      <p>The site's code contains an element labeled as a loader, with its background color set to fade to fully transparent. It is also marked as hidden from screen readers once complete, indicating the site treats it as finished at that point. Whether the yellow screen's duration depends on how long the page actually takes to load, or runs for a fixed amount of time regardless, has not been confirmed. This could be tested by slowing the network connection intentionally and observing whether the loading screen lasts longer.</p>
     </div>
 
     <div id="video">
         <video src="assets/splash-anim.mp4" autoplay muted loop width="100%"></video>
     </div>
 
-    <div id="breakdown-text">
+    <div id="code-breakdown-text">
       <p>This project documents observations made while examining the works.studio website using the browser's Inspect Element tool. For each feature studied, an observation is recorded, followed by a likely explanation, the evidence supporting it, and anything left unconfirmed. The site examined is works.studio, a creative agency website. Three features are covered here: the loading animation, the About navigation behavior, and the project card hover previews.</p>
       <br>
 
       <div id="loading-code-png">
         <img src="assets/loading-code.png" width="100%" />
-    </div>
+      </div>
       
     </div>
 
