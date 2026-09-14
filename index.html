@@ -45,14 +45,14 @@
 
   <div id="Intro+Loading-Screen">
   
-    <div id="Header-Section">
+    <div id="Intro-Header">
         <h1>A Study of the WØRKS Studio Website</h1>
         <h2> By Noah Oh</h2>
         <br>
     </div>
 
-    <div id="initial-text">
-      <p>This project documents observations made while examining the works.studio website using the browser's Inspect Element tool. For each feature studied, an observation is recorded, followed by a likely explanation, the evidence supporting it, and anything left unconfirmed. The site examined is works.studio, a creative agency website. Three features are covered here: the loading animation, the About navigation behavior, and the project card hover previews.</p>
+    <div id="overview-text">
+      <p>This website is a research journal focused on the HTML (and general code) behind the WØRKS Studio website. To conduct my research, I used my browser’s Inspect Element tool, and a baseline knowledge of HTML. For each of the features I honed in on, an observation, mechanical explanation, and evidence is provided, along with potential questions regarding the code. works.studio showcases the work and history of WØRKS Studio, a renowned creative agency that practices bold, meaningful visual and digital design work for a vast number of clients. Some of the features I cover surrounding this website are the loading overlays, the “About” navigation behaviour, the project card hover previews, and the built-in Screensaver. I hope this journal in insightful to you!</p>
       <br>
     </div>
 
@@ -84,17 +84,8 @@
     
     </div>
 
-    <div id="video">
+      <div id="video">
         <video src="assets/splash-anim.mp4" autoplay muted loop width="100%"></video>
-    </div>
-
-    <div id="code-breakdown-text">
-      <h3>The Code</h3>
-      <p>I will insert the copy here</p>
-      <br>
-
-      <div id="loading-code-png">
-        <img src="assets/loading-code.png" style="width: 75%; display: block; margin: 0 auto;" />
       </div>
       
     </div>
@@ -111,13 +102,13 @@
 
     <div id="breakdown-text">
       <h3>Observation</h3>
-      <p>This project documents observations made while examining the works.studio website using the browser's Inspect Element tool. For each feature studied, an observation is recorded, followed by a likely explanation, the evidence supporting it, and anything left unconfirmed. The site examined is works.studio, a creative agency website. Three features are covered here: the loading animation, the About navigation behavior, and the project card hover previews.</p>
+      <p>When you click the "About" button in the top nav, it opens a full panel. “About” changes color (to a dimmer gray), then remains that color for as long as the panel stays open, rather than reverting the way a typical hover effect would. When the panel is opened, it snaps until the user makes any downward input on the scroll wheel, which flicks it back up. There isn’t a controllable progression; the panel is either up or down.</p>
       <br>
       <h3>Mechanism</h3>
-      <p>Clicking does more than open the panel — it also marks the About link as currently active, similar to how a selected tab stays highlighted. This marking is what keeps the color in place.</p>
+      <p>Clicking the “About” does more than open the panel. In the main “Body” element (which governs all visible ui code), “overflow” is an integrated style, and is marked as “hidden” when the panel is down, and “initial” when the panel is up. I’m guessing the panel is treated as a separate (or atleast, different) block compared to the rest of the ui code, which also possibly means that when viewing the “about” panel, the rest of the site is unavailable until you scroll back down. It’s interesting to think that the element for the entire “body” of the site contributes to one specific feature in one specific section.</p>
       <br>
       <h3>Evidence</h3>
-      <p>Comparing the code before and after the click shows the link gaining an additional label afterward, along with a rule that overrides its default grey color. Whether clicking changes the browser's URL, or is handled entirely within the same page, has not been confirmed.</p>
+      <p>As mentioned, the “Body” element that attributes to the entirety of the websites ui, has a baked in style="overflow: initial;” tag, which changes to style=“overflow: hidden;” when “about” is clicked (showed in the video). My hypothesis is that this change in the “body” signals many other lines of code that then result in the functional change of the website and the navigation.</p>
     </div>
 
     <div id="video">
@@ -136,18 +127,19 @@
 
     <div id="breakdown-text">
       <h3>Observation</h3>
-      <p>Hovering over a project image in the grid causes it to visually stand out from the others.</p>
+      <p>When you hover over a project card with your mouse in the bento grid, the project plays a looping thumbnail video to signify. However, when you take a look at the code, it’s difficult to find the video file that plays. Under the “Thumbnail” element, you can find the JPG files of the thumbnails, with breakpoints to ensure responsiveness at any screen size (which is interesting, as each JPG file is the exact same size for each breakpoint).</p>
       <br>
-      <h3>Mechanism</h3>
-      <p>Each project card is an individual item in a list. When the cursor enters one, it is marked as "highlighted" — the rest are likely styled to recede by comparison.</p>
+      <h3>Mechanism + Evidence</h3>
+      <p>After inspecting the code, I learnt that each project card is an individual item in a list, titled “GridItem”. When the cursor enters one, the code reflects that, which I presume notifies another piece of code that then signals for the thumbnail video to begin looping.</p>
       <br>
-      <h3>Evidence</h3>
-      <p>Inspecting a card while hovering over it shows the word "highlighted" added directly to that card's code, and only that one. The exact style change tied to "highlighted" has not been confirmed — whether it dims the other cards, enlarges the hovered one, or both. Reviewing the associated style rule directly would settle this.</p>
+      <h3>Question</h3>
+      <p>I’m curious about the responsiveness of the bento grid, because at any width under 1200px, the free-form bento becomes a strict 3-column grid, then a 2-column when squished further.</p>
     </div>
 
     <div id="video">
         <video src="assets/card-previews.mp4" autoplay muted loop width="100%"></video>
     </div>
+    <br>
 
       <div id="card-preview-code-png">
         <img src="assets/card-preview-code.png" width="100%" />
@@ -167,17 +159,25 @@
 
     <div id="breakdown-text">
       <h3>Observation</h3>
-      <p>Hovering over a project image in the grid causes it to visually stand out from the others.</p>
+      <p>When the browser/tab is left alone for a bit, the website automatically goes into an animated screensaver. This state is actually the first element nested in the main “body” (as HTML is read top-to-bottom), and is invisible until signalled to activate. It’s weird to think that the block exists the entire time you scroll the site, just hidden until needed.</p>
       <br>
       <h3>Mechanism</h3>
-      <p>Each project card is an individual item in a list. When the cursor enters one, it is marked as "highlighted" — the rest are likely styled to recede by comparison.</p>
+      <p>There is most likely a built-in timer that the website uses to track when the user last interacted with the page. After the threshold of inactivity is hit, the overlay automatically becomes visible, revealing the screensaver animation.</p>
       <br>
       <h3>Evidence</h3>
-      <p>Inspecting a card while hovering over it shows the word "highlighted" added directly to that card's code, and only that one. The exact style change tied to "highlighted" has not been confirmed — whether it dims the other cards, enlarges the hovered one, or both. Reviewing the associated style rule directly would settle this.</p>
+      <p>The code reflects that there are two things at play with the visibility of the overlay: an opacity style (which goes from 1 to 0 when a user is sensed), and a visibility tag, that changes between “inherent” and “hidden”. I’m having troubles finding the code that relates to the timer of the screensaver, but I can see that many different components are nested within the screensaver element. Maybe it relates to CSS or Java?</p>
+      <br>
+      <h3>Question</h3>
+      <p>I’m curious if the animation contributes to any of the memory/ram required to run the website; does it affect the sites performance even when it’s not physically visible, but exists as an element in the main “body”?</p>
+    
     </div>
 
     <div id="video">
         <video src="assets/Screensaver.mp4" autoplay muted loop width="100%"></video>
+    </div>
+
+    <div id="remarks">
+      <p>Thats all the research done for now, but I will continue to poke around the works.studio website to see what I can find :)</p>
     </div>
 
   </body>
