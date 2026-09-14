@@ -127,18 +127,19 @@
 
     <div id="breakdown-text">
       <h3>Observation</h3>
-      <p>Hovering over a project image in the grid causes it to visually stand out from the others.</p>
+      <p>When you hover over a project card with your mouse in the bento grid, the project plays a looping thumbnail video to signify. However, when you take a look at the code, it’s difficult to find the video file that plays. Under the “Thumbnail” element, you can find the JPG files of the thumbnails, with breakpoints to ensure responsiveness at any screen size (which is interesting, as each JPG file is the exact same size for each breakpoint).</p>
       <br>
-      <h3>Mechanism</h3>
-      <p>Each project card is an individual item in a list. When the cursor enters one, it is marked as "highlighted" — the rest are likely styled to recede by comparison.</p>
+      <h3>Mechanism + Evidence</h3>
+      <p>After inspecting the code, I learnt that each project card is an individual item in a list, titled “GridItem”. When the cursor enters one, the code reflects that, which I presume notifies another piece of code that then signals for the thumbnail video to begin looping.</p>
       <br>
-      <h3>Evidence</h3>
-      <p>Inspecting a card while hovering over it shows the word "highlighted" added directly to that card's code, and only that one. The exact style change tied to "highlighted" has not been confirmed — whether it dims the other cards, enlarges the hovered one, or both. Reviewing the associated style rule directly would settle this.</p>
+      <h3>Question</h3>
+      <p>I’m curious about the responsiveness of the bento grid, because at any width under 1200px, the free-form bento becomes a strict 3-column grid, then a 2-column when squished further.</p>
     </div>
 
     <div id="video">
         <video src="assets/card-previews.mp4" autoplay muted loop width="100%"></video>
     </div>
+    <br>
 
       <div id="card-preview-code-png">
         <img src="assets/card-preview-code.png" width="100%" />
