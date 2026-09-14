@@ -71,13 +71,17 @@
 
     <div id="breakdown-text">
       <h3>Observation</h3>
-      <p>This project documents observations made while examining the works.studio website using the browser's Inspect Element tool. For each feature studied, an observation is recorded, followed by a likely explanation, the evidence supporting it, and anything left unconfirmed. The site examined is works.studio, a creative agency website. Three features are covered here: the loading animation, the About navigation behavior, and the project card hover previews.</p>
+      <p>When you first open the site, you’re met with a solid yellow screen with descriptive writing about the company - an initial impression before you get to see all the work and projects. This screen fades with the text, with no spinner, progress bar, or any loading indicator before it disappears.</p>
       <br>
       <h3>Mechanism</h3>
-      <p>A yellow overlay sits on top of the page while it loads. Once the page is ready, the overlay fades out while the headline text fades in at roughly the same time.</p>
+      <p>I’m guessing that a yellow overlay is sitting on top of the viewport that waits for the site to load. Once it does, it is signalled that the site is ready, and the overlay fades with the text. Scrolling is blocked during this time, and the site is unresponsive until loading is completed.</p>
       <br>
       <h3>Evidence</h3>
-      <p>The site's code contains an element labeled as a loader, with its background color set to fade to fully transparent. It is also marked as hidden from screen readers once complete, indicating the site treats it as finished at that point. Whether the yellow screen's duration depends on how long the page actually takes to load, or runs for a fixed amount of time regardless, has not been confirmed. This could be tested by slowing the network connection intentionally and observing whether the loading screen lasts longer.</p>
+      <p>Using the inspect tool and looking at the code, I found that there is an element labeled as a loader, with its background color set to fade to fully transparent (shown in the screen recording), matching the function of the loading overlay. It is also marked as hidden from screen readers once complete, indicating the site treats it as finished at that point, and explains the responsiveness after the overlay disappears.</p>
+      <br>
+      <h3>Question</h3>
+      <p>Whether the overlay’s duration depends on how long the page actually takes to load, or runs for a fixed amount of time regardless, has not been confirmed, and is difficult to find in the code (in HTML, atleast). This could probably be tested by slowing the network connection intentionally and seeing if the loading screens lasts longer. Oh well.</p>
+    
     </div>
 
     <div id="video">
