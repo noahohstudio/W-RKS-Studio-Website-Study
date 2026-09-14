@@ -159,17 +159,25 @@
 
     <div id="breakdown-text">
       <h3>Observation</h3>
-      <p>Hovering over a project image in the grid causes it to visually stand out from the others.</p>
+      <p>When the browser/tab is left alone for a bit, the website automatically goes into an animated screensaver. This state is actually the first element nested in the main “body” (as HTML is read top-to-bottom), and is invisible until signalled to activate. It’s weird to think that the block exists the entire time you scroll the site, just hidden until needed.</p>
       <br>
       <h3>Mechanism</h3>
-      <p>Each project card is an individual item in a list. When the cursor enters one, it is marked as "highlighted" — the rest are likely styled to recede by comparison.</p>
+      <p>There is most likely a built-in timer that the website uses to track when the user last interacted with the page. After the threshold of inactivity is hit, the overlay automatically becomes visible, revealing the screensaver animation.</p>
       <br>
       <h3>Evidence</h3>
-      <p>Inspecting a card while hovering over it shows the word "highlighted" added directly to that card's code, and only that one. The exact style change tied to "highlighted" has not been confirmed — whether it dims the other cards, enlarges the hovered one, or both. Reviewing the associated style rule directly would settle this.</p>
+      <p>The code reflects that there are two things at play with the visibility of the overlay: an opacity style (which goes from 1 to 0 when a user is sensed), and a visibility tag, that changes between “inherent” and “hidden”. I’m having troubles finding the code that relates to the timer of the screensaver, but I can see that many different components are nested within the screensaver element. Maybe it relates to CSS or Java?</p>
+      <br>
+      <h3>Question</h3>
+      <p>I’m curious if the animation contributes to any of the memory/ram required to run the website; does it affect the sites performance even when it’s not physically visible, but exists as an element in the main “body”?</p>
+    
     </div>
 
     <div id="video">
         <video src="assets/Screensaver.mp4" autoplay muted loop width="100%"></video>
+    </div>
+
+    <div id="remarks">
+      <p>Thats all the research done for now, but I will continue to poke around the works.studio website to see what I can find :)</p>
     </div>
 
   </body>
